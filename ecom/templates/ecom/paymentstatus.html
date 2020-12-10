@@ -1,0 +1,57 @@
+{% extends 'ecom/basic.html' %}
+{% block title%} My Ecommerce Cart payment{% endblock %}
+
+{% block home %}
+<input type="hidden" name="id1" id='idvalue1' value='{{user_id}}'>
+{% endblock %}
+{% block about %}
+<input type="hidden" name="id1" id="idvalue2"  value='{{user_id}}'>
+{% endblock %}
+{% block contact %}
+<input type="hidden" name="id1" id="idvalue3" value='{{user_id}}'>
+{% endblock %}
+{% block profile %}
+<input type="hidden" name="id1" id="idvalue4" value='{{user_id}}'>
+{% endblock %}
+
+{% block body %}
+
+    </div>
+
+    <div class="jumbotron text-center">
+	  <h2 class="display-3">Payment status regarding your order Id {{response.ORDERID}}</h2>
+	  <p class="lead"><strong>Please check your email</strong> for further  Details.</p>
+	  <hr>
+	    {% if response.RESPCODE == '01' %}
+        ORDER SUCCESS
+        {% else %}
+        ORDER FAILURE
+        {% endif%}
+	    <form action='/ecom/home/' method="post">{% csrf_token %}
+		      <input type="hidden" name="id1" id='idvalue5' value="{{user.id}}">
+		  <p class="lead">
+		    <button class="btn btn-primary btn-sm">Continue to homepage</button>
+		  </p>
+		</form>
+	</div>
+
+    
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+
+document.getElementById('idvalue1').value = JSON.parse(localStorage.getItem('cust_id'));
+document.getElementById('idvalue2').value = JSON.parse(localStorage.getItem('cust_id'));
+document.getElementById('idvalue3').value = JSON.parse(localStorage.getItem('cust_id'));
+document.getElementById('idvalue4').value = JSON.parse(localStorage.getItem('cust_id'));
+document.getElementById('idvalue5').value = JSON.parse(localStorage.getItem('cust_id'));
+
+	var cart = JSON.parse(localStorage.getItem('cart'));
+	cart = {};
+	// localStorage.setItem('cart', cart);
+	localStorage.setItem('cart', JSON.stringify(cart));
+
+</script>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Title Page-->
+    <title>Sign-Up</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static '/page2/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static '/page2/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="{% static '/page2/https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i' %}" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static '/page2/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static '/page2/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static '/page2/css/main.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-01 p-t-30 p-b-30 font-poppins" style="padding-top:35px;">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration Info</h2>
+                    <form method="post"> {% csrf_token %}
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Name" name="name" value='{{user_name}}'required>
+                        </div>
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="gender">
+                                    <option disabled="disabled" selected="selected">Gender</option>
+                                    <option selected>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3"  type="email" placeholder="Email" name="email" value='{{email_addr}}' required>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="tel" placeholder="Phone" name="phone" value='{{phone}}' pattern="^\d{10}$" required>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Address" name="address" value='{{addr}}' required>
+                        </div>
+                        <div class="input-group">
+                            <input id = 'password' class="input--style-3" type="password" placeholder="Password" name="password1" value='{{pass1}}' required>
+                        </div>
+                        <div class="input-group">
+                            <input id = 'confirm_password' class="input--style-3" type="password" placeholder="Confirm Password" name="password2" required>
+                            <span id='message'></span>
+                        </div>
+                        <div class="p-t-10">
+                            <button id = 'submit' class="btn btn--pill btn--green" type="submit" required>Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+        
+        {% if msg|length != 0 %}
+            alert('{{msg}}');
+            // document.location = "/company/signup/";
+        {% endif %}
+
+
+
+        $('#password, #confirm_password').on('keyup', function () {
+          if ($('#password').val() == $('#confirm_password').val()) {
+            $('#message').html('Matching').css('color', 'green');
+          } else 
+            $('#message').html('Not Matching').css('color', 'red');
+        });
+
+
+
+    </script>
+    <!-- Jquery JS-->
+    <script src="static/page2/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="static/page2/vendor/select2/select2.min.js"></script>
+    <script src="static/page2/vendor/datepicker/moment.min.js"></script>
+    <script src="static/page2/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="static/page2/js/global.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->

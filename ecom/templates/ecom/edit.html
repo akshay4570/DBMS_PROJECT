@@ -1,0 +1,110 @@
+{% extends 'ecom/profile.html' %}
+
+{% block image_change %}
+    <div class="mt-2">
+     <form method="post" enctype="multipart/form-data">{% csrf_token %}
+      <input id = "img" type="file" name = "profile_image"/>
+      <button class="btn btn-primary" type="submit" style="padding-bottom:2%;margin-top:10px;">
+        <i class = "fa fa-fw fa-camera"></i>
+       <span>Upload photo </span>
+      </button>
+     </form>
+    </div>
+{% endblock %}
+
+{% block main_body %}
+<ul class="nav nav-tabs">
+                <li class="nav-item"><a href="" class="active nav-link">EDITING</a></li>
+              </ul>
+
+
+              <div class="tab-content pt-3">
+                <div class="tab-pane active">
+                  <form class="form" action="/ecom/changes/" method="post">{% csrf_token %}
+
+                     <div class="row">
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Full Name</label>
+                              <input class="form-control" type="text" name="name"
+                                     placeholder="Full-Name" value="{{user.username}}" required>
+                            </div>
+                          </div>
+
+                          <div class="col">
+                            <div class="form-group">
+                              <label>User Name</label>
+                              <p class="form-control">{{username}}</p>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Email</label>
+                              <input class="form-control" type="email" name="email"
+                                     placeholder="user@example.com" value = "{{user.email}}"required>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col">
+                          <div class="row">
+
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Phone Number (format: xxxxxxxxxx):</label>
+                                <input class="form-control" type="text" name="phone_no" pattern="^\d{10}$"
+                                       placeholder="phone-no" value = "{{user.phone}}" required>
+                              </div>
+                            </div>
+
+                           <div class="col">
+                              <div class="form-group" style="margin-left: 75px;margin-top: 35px;">
+                                <label>Sex</label>
+                                <select name="sex">
+                                {% if user.sex == "Male" %}
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                  {% else %}
+                                  <option value="Female">Female</option>
+                                  <option value="Male">Male</option>
+                                  {% endif %}
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Address</label>
+                                <input class="form-control" type="text" name="address"
+                                       placeholder="Address" value = "{{user.address}}" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <br>
+                    <input type="hidden" name="id1" value="{{user.id}}">
+                    <div class="row">
+                      <div class="col d-flex justify-content-end">
+                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+{% endblock %}

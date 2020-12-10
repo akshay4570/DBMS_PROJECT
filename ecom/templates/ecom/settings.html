@@ -1,0 +1,80 @@
+{% extends 'ecom/profile.html' %}
+
+{% block main_body %}
+
+    <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="" class="active nav-link">SETTING</a></li>
+              </ul>
+
+
+              <div class="tab-content pt-3">
+                <div class="tab-pane active">
+                  <form class="form" method="post" onclick="checkPassword()">{% csrf_token %}
+
+                    <div class="row">
+                      <div class="col-12 col-sm-6 mb-3"><div style="padding-left:1%">
+                        <div class="mb-2"><b>CHANGE PASSWORD</b></div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Current Password</label>
+                              <input class="form-control" type="password" 
+                              name='cur_pass' placeholder="••••••" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>New Password</label>
+                              <input class="form-control" type="password" 
+                               id = 'pass1' name='pass1' placeholder="••••••" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
+                              <input class="form-control" type="password" 
+                              id = 'pass2' name='pass2' placeholder="••••••" required></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-5 offset-sm-1 mb-3">
+                      </div></div>
+                    </div>
+                    <div class="row">
+                      <div class="col d-flex justify-content-end">
+                        <button class="btn btn-primary" type="submit" id='submit'>Save Changes</button>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+{% endblock %}
+
+{% block js %}
+<script>
+{% if msg|length != 0 %}
+alert('{{msg}}');
+// document.location = '/ecom/settings/';
+{% endif %}
+function checkPassword() {
+                password1 = document.getElementById('pass1').value;
+                password2 = document.getElementById('pass2').value;
+                console.log(password1);
+                console.log(password2);
+                if(password1!=password2)
+                {
+                    document.getElementById('submit').disabled = true;
+                }
+                else
+                {
+                    document.getElementById('submit').disabled = false;
+                }
+
+        }
+</script>   
+{% endblock %}

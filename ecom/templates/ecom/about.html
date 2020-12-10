@@ -1,0 +1,207 @@
+{% extends 'ecom/basic.html' %}
+{% load static %}
+{% block title %} About Us  {% endblock %}
+
+{% block meta %}
+    <link rel="stylesheet" type="text/css" href="{% static '/ecom/about/css/style.css' %}">
+
+    <link
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+  rel="stylesheet"  type='text/css'>
+
+{% endblock %}
+
+{% block home %}
+<input type="hidden" name="id1" value='{{user.id}}'>
+{% endblock %}
+{% block about %}
+<input type="hidden" name="id1" value='{{user.id}}'>
+{% endblock %}
+{% block contact %}
+<input type="hidden" name="id1" value='{{user.id}}'>
+{% endblock %}
+{% block profile %}
+<input type="hidden" name="id1" value='{{user.id}}'>
+{% endblock %}
+
+{% block body %}
+<div class="container" style = "margin-top:50px;">
+<div class="card" style="max-width: 1000px;margin-top:70px;border:none">
+  <div class="row no-gutters">
+    <div class="col-lg-3">
+      <img src="/static/ecom/about/images/img1.png" class="card-img" alt="..." style = "width:200px;height:250px;">
+    </div>
+    <div class="col-lg-6">
+      <div class="card-body">
+        <div class="col">
+            <h1 style="color:#640278;">About Us</h1>
+        </div>
+        <h6 class="card-text">Its the new journey we are going to embark in the future
+       where everything is digitalised and purchasing products
+       is part and parcel of everyone life.
+       So this is the platform where buying the products is as
+            simple and makes your life easy.</h6>
+      </div>
+    </div>
+
+      <div class="ui-card card border-light col-lg-3" style="border:none;">
+          <h5 class="ui-title text-sec-headline-xs">
+              <img src="/static/ecom/about/images/logo.png"></h5>
+          <div class="card-content">
+              <h3 class="base-card-title" title="E-Commerce">
+                  E-Commerce
+              </h3>
+              <div class="base-card-detail text-content">
+                  <div>
+                      <div class="tutorial-content text-content">
+                          <div class="LinesEllipsis  ">Email: ecommercabj@gmail.com<wbr>
+                          </div></div><div class="start-tutorial bold">Phone: +91-9513894695
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+	<section id="team">
+		<div class="container my-3 py-5 text-center" style="margin-top:200px;">
+			<div class="row mb-5">
+				<div class="col">
+					<h1 style="color:#640278;">Meet The Team</h1>
+						</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<img src="/static/ecom/about/images/akshay.jpeg" alt="Akshay Image"
+                                 class="img-fluid rounded-circle w-50 mb-3" style="width=150px;height:150px;">
+							<h3>Akshay Hegde</h3>
+							<h5>Developer</h5>
+							<p>developer at E-commerceabj.com and more</p>
+							<div class="d-flex flex-row justify-content-center">
+								<div class="p-4">
+									<a href="https://www.facebook.com/profile.php?id=100008186341581">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="https://www.linkedin.com/in/akshay-hegde-779a41183/">
+										<i class="fa fa-linkedin"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="https://www.instagram.com/akshayhegde4570/">
+										<i class="fa fa-instagram"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="mailto:akshay4570@gmail.com" target="_top">
+										<i class="fa fa-envelope"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<img src="/static/ecom/about/images/bharath.jpeg" alt="Bharath Image"
+                                 class="img-fluid rounded-circle w-50 mb-3" style="width=150px;height:150px;">
+							<h3>Bharath Choudhary</h3>
+							<h5>Developer</h5>
+							<p>developer at E-commerceabj.com and more</p>
+							<div class="d-flex flex-row justify-content-center">
+								<div class="p-4">
+									<a href="https://www.facebook.com/bharath.choudhary.756">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="https://www.linkedin.com/in/bharath-choudhary-2196bb175/">
+										<i class="fa fa-linkedin"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="https://www.instagram.com/bharathm_smg/">
+										<i class="fa fa-instagram"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="mailto:coderkb@gmail.com">
+										<i class="fa fa-envelope"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<img src="/static/ecom/about/images/jithendra.jpeg" alt="Jithendra Image"
+                                 class="img-fluid rounded-circle w-50 mb-3" style="width=150px;height:150px;">
+							<h3>Jithendra S R</h3>
+							<h5>Developer</h5>
+							<p>developer at E-commerceabj.com and more</p>
+							<div class="d-flex flex-row justify-content-center">
+								<div class="p-4">
+									<a href="https://www.facebook.com/jithendra.vasista">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="https://www.linkedin.com/in/jithendra-s-r-416834184/">
+										<i class="fa fa-linkedin"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="https://www.instagram.com/jithendra_vasista/">
+										<i class="fa fa-instagram"></i>
+									</a>
+								</div>
+								<div class="p-4">
+									<a href="mailto:jithendrasrj@gmail.com">
+										<i class="fa fa-envelope"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+
+{% endblock %}
+
+
+{% block js %}
+<script>
+	var cust_id = JSON.parse(localStorage.getItem('cust_id'));
+</script>
+
+<!--===============================================================================================-->
+	<script src="/static/ecom/contact/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/ecom/contact/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/ecom/contact/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/ecom/contact/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/ecom/contact/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/ecom/contact/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/static/ecom/contact/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/ecom/contact/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/ecom/contact/js/main.js"></script>
+
+{% endblock %}

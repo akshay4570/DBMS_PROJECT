@@ -1,0 +1,151 @@
+{% extends 'ecom/basic.html' %}
+
+{% block title %}
+  User Profile
+{% endblock %}
+
+{% block meta %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+    body{
+  background:#f8f8f8
+}
+.main_btn{
+  margin-bottom: 5px;
+    width: 120px;
+}
+{% endblock %}
+
+
+{% block home %}
+<input type="hidden" name="id1" value='{{user.id}}'>
+{% endblock %}
+{% block about %}
+<input type="hidden" name="id1" value='{{user.id}}'>
+{% endblock %}
+{% block contact %}
+<input type="hidden" name="id1" value='{{user.id}}'>
+{% endblock %}
+{% block profile %}
+<input type="hidden" name="id1" value='{{user.id}}'>
+{% endblock %}
+
+{% block body %}
+<div class="container" style="margin-top:10px;margin-bottom:-15px;">
+<div class="row flex-lg-nowrap">
+<div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+  <div class="card p-3">
+    <div class="e-navlist e-navlist--active-bg">
+       <ul class="nav">
+          <form action='/ecom/account/' method="post">{% csrf_token %}
+            <input type="hidden" name="id1" value="{{user.id}}">
+            <button class="btn btn-primary main_btn">
+              <li class="nav-item">
+                <i class="fa fa-fw fa-user mr-1"></i><span> Account</span>
+              </li>
+            </button>
+          </form>
+          <form action='/ecom/edit/' method="get">
+            <input type="hidden" name="id1" value="{{user.id}}">
+            <button class="btn btn-primary main_btn">
+              <li class="nav-item">
+                <i class="fa fa-fw fa-edit mr-1"></i><span> Edit</span>
+              </li>
+            </button>
+          </form>
+          <form action='/ecom/settings/' method="get">
+            <input type="hidden" name="id1" value="{{user.id}}">
+            <button class="btn btn-primary main_btn">
+              <li class="nav-item">
+                <i class="fa fa-fw fa-cogs mr-1"></i><span> Settings</span>
+              </li>
+            </button>
+          </form>
+    </ul>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <div class="row">
+    <div class="col mb-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="e-profile">
+
+
+            <div class="row">
+
+              <!-- for image -->
+              <div class="col-12 col-sm-auto mb-3">
+                <div class="mx-auto" style="width: 140px;">
+                  <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+
+                    {% if user.image %}
+                      <img src="{{user.image}}" alt = "image" style = "height:140px;width:140px;"/>
+                    {% else %}
+                      <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                    {% endif %}
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                <div class="text-center text-sm-left mb-2 mb-sm-0">
+                  <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"><data value = "{{user.username}}">{{user.username}}</data></h4>
+                  <p class="mb-0"><data value = "{{username}}">{{username}}</data></p>
+
+                  {% block image_change %} {% endblock %}
+
+                </div>
+                <div class="text-center text-sm-right">
+                  <span class="badge badge-secondary">customer</span>
+                  <div class="text-muted"><small>{{user.id}}</small></div>
+                </div>
+              </div>
+            </div>
+
+
+            {% block main_body %} {% endblock %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-3 mb-3">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="px-xl-3">
+              <form action="/" method="post">{% csrf_token %}
+                <button class="btn btn-block btn-secondary" >
+                  <i class="fa fa-sign-out"></i>
+                  <span>Logout</span>
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title font-weight-bold">Support</h6>
+          <p class="card-text">Get fast, free help from our friendly assistants.</p>
+          <form action ="/ecom/contact/" method="get"><button type="submit" class="btn btn-primary">Contact Us</button></form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+{% endblock %}
